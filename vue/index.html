@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/axios.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    // axios.get("http://localhost:8080/axios/getUser",{
+    //     params:{
+    //         id:12
+    //     }
+    // }).then(res=>{
+    //     console.log(res.data)
+    // })
+
+    //  axios.get("http://localhost:8080/axios/getData/103"
+    // ).then(res=>{
+    //     console.log(res.data)
+    // })
+
+    axios.defaults.baseURL = 'http://localhost:8080/axios'
+    // axios.defaults.headers['token'] = 'wwjjsdsdsfdsgghtrhtn'
+    
+    // axios.interceptors.request.use(function (config) {
+    //     config.headers.token= 'wwjjsdsdsfdsgghtrhtn'
+    //     return config
+    // })
+
+    axios.interceptors.response.use(function (res) {
+        let data = res.data
+        return data
+    })
+
+    axios.post("saveUser",
+        {
+            id:1,
+            name:'mic',
+            dept:'技术部'
+        }
+    ).then(res=>{
+        console.log(res)
+    })
+
+
+
+</script>
+
+</body>
+</html>
